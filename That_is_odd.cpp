@@ -41,8 +41,6 @@ int main(){
         if(elements%2==0)
             sum += elements;
 
-
-
     }
 
     cout<<sum<<endl;
