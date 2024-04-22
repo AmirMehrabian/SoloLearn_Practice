@@ -33,7 +33,7 @@ int len=str1.length(), num_item=0, time;
 
 for (int i=0; i<len; i++){
 
-     if(str1[i] == ','|i==len-1){
+     if(str1[i] == ','||i==len-1){
         
         if(i==len-1){
         
