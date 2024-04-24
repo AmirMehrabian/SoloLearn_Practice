@@ -32,34 +32,35 @@ cin >> str;
 
 int len = str.length();
 
- char specials[7]={'!', '@', '#', '$', '%', '&', '*'};
+char specials[7]={'!', '@', '#', '$', '%', '&', '*'};
  
- char numbers[10]={'0','1','2','3','4','5','6','7','8','9'};
+char numbers[10]={'0','1','2','3','4','5','6','7','8','9'};
  
- int n_specials=0,n_numbr=0,n_char=0;
+int n_specials=0,n_numbr=0,n_char=0;
 
 for (int i=0; i<len; i++){
 
     for (int j=0; j<7; j++){
    
-     if (str[i]==specials[j]){
+        if (str[i]==specials[j]){
      
-     n_specials +=1;
+           n_specials +=1;
    
-     }
+        }
      
     }
+ 
     for (int jj=0; jj<10; jj++){
     
-     if (str[i]==numbers[jj]){
+        if (str[i]==numbers[jj]){
      
-     n_numbr  +=1;
+            n_numbr  +=1;
   
-     }
+         }
      
- }
+    }
  
- }
+}
 
 n_char = len-n_specials-n_numbr; 
    
