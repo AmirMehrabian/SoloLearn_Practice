@@ -39,9 +39,6 @@ int main(){
         my_suit[cntr] =word.substr(l_w-1,1) ;
         cntr += 1;
         word = "";
-        
-        
-        word = "";
             
         }else{
             
