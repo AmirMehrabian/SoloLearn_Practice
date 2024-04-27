@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <unordered_set>
 using namespace std;
 
 char suits[4] = {'H','D','C','S'};
@@ -10,7 +11,38 @@ void print_arr(int size, T arr[]){
     for (int i=0; i<size; i++){
     cout<<arr[i]<<endl;
     }
+}
+bool is_straight(string arr[]){
+    unordered_set<string> vals;
+    for(int i=0; i<9;i++){
+        
+        }
+    
+    
     }
+
+
+
+
+/* num_repeat function can give us the sum of number of duplication. Based on
+its output, we realize that if output is 1: pair, 2: two pair, 3:three of a kind, 6: four of a kind, 4:full house.*/
+    
+int num_repeat(string arr[]){
+    int rep = 0;
+    
+    for (int i=0; i<4; i++){
+        for (int j =i+1; j<5; j++){
+            
+            if (arr[i]==arr[j]){
+                rep +=1;
+                
+                }
+            
+            }
+    }
+    
+    return rep; 
+}
 
 int main(){
     //print_arr<char>(4,suits);
@@ -54,7 +86,12 @@ int main(){
     }
     cout<<"---------------"<<endl;
     print_arr<string>(5,my_suit);
+    cout<<"values"<<endl;
+    
     print_arr<string>(5,my_val);
+    
+  cout<<num_repeat(my_val)<<endl;
+    
     
     return 0;
     
