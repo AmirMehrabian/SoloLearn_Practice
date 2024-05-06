@@ -12,12 +12,22 @@ void print_arr(int size, T arr[]){
     cout<<arr[i]<<endl;
     }
 }
+
+
 bool is_straight(string arr[]){
-    unordered_set<string> vals;
+    
+    unordered_set<string> myvals = {arr[0],arr[1],arr[2],arr[3],arr[4]};
+    
     for(int i=0; i<9;i++){
+        unordered_set<string> vals={values[i], values[i+1], values[i+2], values[i+3], values[i+4]};
+        
+         if (myvals ==vals){
+            return true;
+            }
         
         }
-    
+        
+    return false;
     
     }
 
@@ -88,6 +98,7 @@ int main(){
     print_arr<string>(5,my_val);
     
   cout<<num_repeat(my_val)<<endl;
+  cout<<"Is it straight:"<<is_straight(my_val)<<endl;
     
     
     return 0;
