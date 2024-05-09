@@ -14,7 +14,7 @@ Straight Flush: All cards are consecutive values of same suit.
 Royal Flush: 10, Jack, Queen, King, Ace, in same suit.
 
 Task:
-Output the rank of the give poker hand.
+Output the rank of the given poker hand.
 
 Input Format:
 A string, representing five cards, each indicating the value and suite of the card, separated by spaces.
@@ -36,7 +36,6 @@ Two Pairs */
 #include <unordered_set>
 using namespace std;
 
-
 char suits[4] = {'H','D','C','S'};
 string values[13] = {"2","3","4","5","6","7","8","9","10","J","Q","K","A"};
 
@@ -50,7 +49,6 @@ void print_arr(int size, T arr[]){
 
     }
 }
-
 
 // This check if the cards are straight
 bool is_straight(string arr[]){
@@ -86,16 +84,12 @@ bool is_straight(string arr[]){
 
          return false;
 
-
+    }
     }
 
-    }
 
-
-
-
-/* num_repeat function can give us the sum of number of duplication. Based on
-its output, we realize that if output is 1: pair, 2: two pair, 3:three of a kind, 6: four of a kind, 4:full house.*/
+/* num_repeat function can give us the sum of the number of duplications. Based on
+its output, we realize that if the output is 1: pair, 2: two pair, 3: three of a kind, 6: four of a kind, 4:full house.*/
 
 int num_repeat(string arr[]){
     int rep = 0;
@@ -114,7 +108,7 @@ int num_repeat(string arr[]){
     return rep;
 }
 
-// This will check if there is flush
+// This will check if there is a flush
 bool is_flush(string arr[]){
 
     if(num_repeat(arr)==10){
