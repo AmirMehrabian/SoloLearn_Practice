@@ -1,19 +1,58 @@
+/*
+Poker Hand:
+You are playing poker with your friends and need to evaluate your hand.
+A hand consists of five cards and is ranked, from lowest to highest, in the following way:
+High Card: Highest value card (from 2 to Ace).
+One Pair: Two cards of the same value.
+Two Pairs: Two different pairs.
+Three of a Kind: Three cards of the same value.
+Straight: All cards are consecutive values.
+Flush: All cards of the same suit.
+Full House: Three of a kind and a pair.
+Four of a Kind: Four cards of the same value.
+Straight Flush: All cards are consecutive values of same suit.
+Royal Flush: 10, Jack, Queen, King, Ace, in same suit.
+
+Task:
+Output the rank of the give poker hand.
+
+Input Format:
+A string, representing five cards, each indicating the value and suite of the card, separated by spaces.
+Possible card values are: 2 3 4 5 6 7 8 9 10 J Q K A
+Suites:  H (Hearts), D (Diamonds), C (Clubs), S (Spades)
+For example, JD indicates Jack of Diamonds.
+
+Output Format:
+A string, indicating the rank of the hand (in the format of the above description).
+
+Sample Input:
+JS 2H JC AC 2D
+
+Sample Output:
+Two Pairs */
+
 #include <iostream>
 #include <string>
 #include <unordered_set>
 using namespace std;
 
+
 char suits[4] = {'H','D','C','S'};
 string values[13] = {"2","3","4","5","6","7","8","9","10","J","Q","K","A"};
 
+// This is for printing the cards in the hand
 template <typename T>
 void print_arr(int size, T arr[]){
+
     for (int i=0; i<size; i++){
+
     cout<<arr[i]<<endl;
+
     }
 }
 
 
+// This check if the cards are straight
 bool is_straight(string arr[]){
 
     unordered_set<string> myvals = {arr[0],arr[1],arr[2],arr[3],arr[4]};
@@ -31,6 +70,7 @@ bool is_straight(string arr[]){
 
     }
 
+// This check if cards are royal
     bool is_royal(string arr[]){
 
     unordered_set<string> myvals = {arr[0],arr[1],arr[2],arr[3],arr[4]};
@@ -74,17 +114,23 @@ int num_repeat(string arr[]){
     return rep;
 }
 
+// This will check if there is flush
 bool is_flush(string arr[]){
+
     if(num_repeat(arr)==10){
+
         return true;
+
     }else{
+
         return false;
+
     }
 
 }
 
 
-
+// This will use the previous functions to return the type of hand
 string hand_type(string vals[], string suits[]){
 
 string type;
@@ -96,53 +142,64 @@ if (is_straight(vals)){
     if (flush_flag){
 
         if(is_royal(vals)){
-                type = "royal straight";
+
+                type = "Royal Flush";
 
         }else{
 
-        type = "flush straight";
+        type = "Straight Flush";
 
-       }
+        }
+
     }else{
 
-    type = "straight";
+    type = "Straight";
 
     }
 
 
 }else if(flush_flag){
-    type = "flush";
+
+    type = "Flush";
 
 }else if(repeats!=0){
 
     switch(repeats){
 
-    case 1:
-        type = "pair";
+     case 1:
+
+        type = "One Pair";
         break;
 
-    case 2:
-        type = "two pair";
+     case 2:
+
+        type = "Two Pairs";
         break;
 
-    case 3:
-        type = "three of a kind";
+     case 3:
+
+        type = "Three of a Kind";
         break;
 
      case 4:
-        type = "full house";
+
+        type = "Full House";
         break;
 
      case 6:
-        type = "four of a kind";
+
+        type = "Four of a Kind";
         break;
 
     }
 
 
 }else{
-   type = "Higher_Hand";
+
+   type = "High Card";
+
 }
+
 return type;
 
 }
@@ -150,8 +207,7 @@ return type;
 
 
 int main(){
-    //print_arr<char>(4,suits);
-    //print_arr<string>(13,values);
+
     string str, word;
 
     string my_val[5], my_suit[5];
@@ -160,6 +216,7 @@ int main(){
     int len = str.length(), cntr = 0, l_w;
 
     for (int i =0; i<len; i++){
+
         if(str[i] == ' '){
 
         l_w = word.length();
@@ -183,19 +240,9 @@ int main(){
 
         }
 
-
-
     }
-    cout<<"---------------"<<endl;
-    print_arr<string>(5,my_suit);
-    cout<<"values"<<endl;
 
-    print_arr<string>(5,my_val);
-
-  cout<<num_repeat(my_val)<<endl;
-  cout<<"Is it straight:"<<is_straight(my_val)<<endl;
-  cout<<"Is it flush:"<< is_flush(my_suit)<<endl;
-  cout<<"Hand type is: "<< hand_type(my_val, my_suit)<<endl;
+    cout<<"Hand type is: "<< hand_type(my_val, my_suit)<<endl;
 
 
     return 0;
