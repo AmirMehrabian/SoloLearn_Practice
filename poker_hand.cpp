@@ -66,18 +66,52 @@ bool is_flush(string arr[]){
 
 
 string hand_type(string vals[], string suits[]){
+
 string type;
+int repeats = num_repeat(vals);
+bool flush_flag = is_flush(suits);
+
 if (is_straight(vals)){
+
+    if (flush_flag){
+
+    type = "flush straight";
+    }else{
 
     type = "straight";
 
+    }
 
-}else if(is_flush(suits)){
+
+}else if(flush_flag){
     type = "flush";
 
-}else if(num_repeat(vals)!=0){
+}else if(repeats!=0){
 
-    type = "pair";
+    switch(repeats){
+
+    case 1:
+        type = "pair";
+        break;
+
+    case 2:
+        type = "two pair";
+        break;
+
+    case 3:
+        type = "three of a kind";
+        break;
+
+     case 4:
+        type = "full house";
+        break;
+
+     case 6:
+        type = "four of a kind";
+        break;
+
+    }
+
 
 }else{
    type = "Higher_Hand";
