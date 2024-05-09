@@ -31,6 +31,26 @@ bool is_straight(string arr[]){
 
     }
 
+    bool is_royal(string arr[]){
+
+    unordered_set<string> myvals = {arr[0],arr[1],arr[2],arr[3],arr[4]};
+
+
+        unordered_set<string> royal_vals={"A","K", "Q", "J", "10"};
+
+         if (myvals ==royal_vals){
+
+            return true;
+
+            }else{
+
+         return false;
+
+
+    }
+
+    }
+
 
 
 
@@ -75,7 +95,14 @@ if (is_straight(vals)){
 
     if (flush_flag){
 
-    type = "flush straight";
+        if(is_royal(vals)){
+                type = "royal straight";
+
+        }else{
+
+        type = "flush straight";
+
+       }
     }else{
 
     type = "straight";
